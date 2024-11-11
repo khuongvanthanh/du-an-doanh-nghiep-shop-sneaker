@@ -1,0 +1,19 @@
+/*
+ * Author: Nong Hoang Vu || JavaTech
+ * Facebook:https://facebook.com/NongHoangVu04
+ * Github: https://github.com/JavaTech04
+ * Youtube: https://www.youtube.com/@javatech04/?sub_confirmation=1
+ */
+package com.example.dto.requests.productRequests;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+
+@Getter
+public class CategoryRequest {
+    @NotBlank(message = "Vui lòng nhập tên danh mục!")
+    private String name;
+    @NotNull(message = "User id must be not null!")
+    private Long userId;
+}
