@@ -1,9 +1,9 @@
 *Admin :
- username : sysadmin
+ username : sysadmin -
  password : Admin@
  
 *User :
- username : user
+ username : user -
  password : 123456
  
 *Database :
