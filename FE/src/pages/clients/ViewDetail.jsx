@@ -589,7 +589,7 @@ export const ViewDetail = () => {
                       <th>Size</th>
                       <th>Chiều dài</th>
                       <th>Chiều rộng</th>
-                      <th>Độ dài tay áo</th>
+                      <th>Độ dài lót giày</th>
                     </tr>
                   </thead>
                   <tbody>
