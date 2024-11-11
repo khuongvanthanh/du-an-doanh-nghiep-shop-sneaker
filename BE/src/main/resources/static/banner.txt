@@ -14,7 +14,7 @@ ${AnsiColor.BRIGHT_BLUE}Step into comfort and style with our exclusive collectio
 ${AnsiColor.YELLOW}💡 Enjoy a top-notch shopping experience! 💡
 
 ${AnsiColor.BRIGHT_YELLOW}---------------------------------------------------
-${AnsiColor.CYAN}        Members:
+${AnsiColor.CYAN}        Member:
 ${AnsiColor.BRIGHT_YELLOW}      - Khương Văn Thành - PH34331
 ${AnsiColor.BRIGHT_YELLOW}---------------------------------------------------
 ${AnsiColor.BRIGHT_CYAN}🎉 Thank you for choosing SNEAKER! 🎉

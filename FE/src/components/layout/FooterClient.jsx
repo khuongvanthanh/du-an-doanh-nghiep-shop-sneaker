@@ -163,13 +163,13 @@ const FooterClient = () => {
         <List>
           <ListSubheader>Theo dõi chúng tôi trên</ListSubheader>
           <ListItem>
-            <ListItemButton component="a" href="https://facebook.com/NongHoangVu04">
+            <ListItemButton component="a" href="https://www.facebook.com/vanthanh.khuong.31">
               <FacebookRoundedIcon /> 
               <Typography level="body-md">Facebook</Typography>
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component="a" href="https://instagram.com/nonghoangvu04/">
+            <ListItemButton component="a" href="https://www.facebook.com/vanthanh.khuong.31">
               <InstagramIcon /> 
               <Typography level="body-md">Instagram</Typography>
             </ListItemButton>
