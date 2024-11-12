@@ -21,7 +21,7 @@ import CustomerEditModal from '~/components/bill/CustomerEditModal';
 import { fetchCustomerById } from '~/apis/customerApi';
 import { useNavigate } from 'react-router-dom';
 import UpdateIcon from '@mui/icons-material/Update';
-import StatusModal from '~/components/common/StatusModal';
+import StatusModal from '~/components/bill/StatusModal';
 
 export default function BillDetail() {
   const navigate = useNavigate();
@@ -86,7 +86,7 @@ export default function BillDetail() {
   const statusMap = {
     '1': 'Đang chờ xử lý',
     '2': 'Chờ xác nhận',
-    '3': 'Hoàn thành',
+    '3': 'Đã xác nhận',
     '4': 'Chờ giao',
     '5': 'Đã giao thành công',
     '6': 'Giao hàng thất bại',
@@ -138,10 +138,10 @@ export default function BillDetail() {
     }
   };
 
-  const handleStatusConfirm = async (status, customNote) => {
-    await updateBillStatusDetail(status, customNote);
-
-    fetchBillStatusDetails();
+  const handleStatusConfirm = (status, customNote) => {
+    onPay(tempBillNote, status, customNote); 
+    updateBillStatusDetail(status, customNote)
+    fetchBillStatusDetails(); 
   };
 
   const stepIcons = [
@@ -165,11 +165,13 @@ export default function BillDetail() {
     };
 
     try {
-      await addBillStatusDetail(statusDetail);  // Assuming addBillStatusDetail saves to database
+      await addBillStatusDetail(statusDetail);  
       console.log("Status and note saved:", statusDetail);
     } catch (error) {
       console.error("Error updating status:", error);
     }
+    fetchBillEdit();
+    fetchBillStatusDetails();
   };
 
   //----------------------------------------------Bill-------------------------------------//
@@ -183,9 +185,12 @@ export default function BillDetail() {
   const handleNoteCloseModal = () => {
     setIsModalOpenNote(false);
     setBillNote(tempBillNote);
-    onPay(tempBillNote, "2", tempPaymentMethod);
     setIsPaymentConfirmed(true);
-  };
+    updateBillStatusDetail("3", tempBillNote);
+    onPay(tempBillNote, "3", tempBillNote);
+    fetchBillEdit();
+    fetchBillStatusDetails();
+};
 
   const handleNoteChange = (event) => {
     setTempBillNote(event.target.value);
@@ -516,14 +521,9 @@ export default function BillDetail() {
                       <TableCell>{bill.paymentTime}</TableCell>
                       <TableCell>{bill.code}</TableCell>
                       <TableCell>{bill.paymentMethod}</TableCell>
-                      <TableCell>
-                        {bill.employee
-                          ? `${bill.employee.last_name || ''} ${bill.employee.first_name || ''}`
-                          : bill.customer?.lastName || 'No Employee or Customer'}
-                      </TableCell>
+                      <TableCell>{`${bill?.employee?.last_name} ${bill?.employee?.first_name}`}</TableCell>
                       <TableCell>{bill.note}</TableCell>
                     </TableRow>
-
                   ))
               ) : (
                 <TableRow>

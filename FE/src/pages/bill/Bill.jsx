@@ -41,7 +41,7 @@ import VanChuyenNhanh from "~/assert/icon/van-chuyen-nhanh.svg";
 
 function Bill() {
     const navigate = useNavigate();
-    const [activeTabIndex, setActiveTabIndex] = useState(0); 
+    const [activeTabIndex, setActiveTabIndex] = useState(0);
     const [bills, setBills] = useState([]);
     const [selectedOrder, setSelectedOrder] = useState(null);
     const [isProductListModalOpen, setProductListModalOpen] = useState(false);
@@ -82,14 +82,14 @@ function Bill() {
     });
 
     const handleTabChange = (event, newValue) => {
-        setActiveTabIndex(newValue); 
+        setActiveTabIndex(newValue);
         setLoading(true);
 
         setTimeout(() => {
             if (newValue === 0) {
-                navigate('/bill'); 
+                navigate('/bill');
             } else {
-                navigate('/bill/list'); 
+                navigate('/bill/list');
                 localStorage.removeItem('selectedOrder');
                 localStorage.removeItem('bankCode');
             }
@@ -453,14 +453,14 @@ function Bill() {
                 bankCode: bankCode,
                 customer: currentOrder.customerId || null,
                 coupon: currentOrder.coupon ? currentOrder.coupon.id : null,
-                billStatus: 3,
+                billStatus: isDeliveryEnabled ? 2 : 8,
                 shipping: shippingCost,
                 subtotal: subtotal,
                 sellerDiscount: discountAmount,
                 total: totalAfterDiscount,
                 paymentMethod: paymentMethodName,
-                message : null,
-                note : null,
+                message: null,
+                note: null,
                 paymentTime: formatDate(new Date()),
                 userId: localStorage.getItem("userId"),
             },
@@ -489,6 +489,7 @@ function Bill() {
             toast.error("Có lỗi xảy ra khi tạo hóa đơn.");
         }
     };
+
 
     //dia chi
 
@@ -645,7 +646,7 @@ function Bill() {
                 )}
 
                 {!loading && (
-                    <>                  
+                    <>
                         <Tabs
                             value={activeTabIndex}
                             onChange={handleTabChange}
@@ -1015,7 +1016,7 @@ function Bill() {
                                 <Grid item xs={12} md={6}>
                                     <Box
                                         component="img"
-                                        src="https://res.cloudinary.com/dp0odec5s/image/upload/v1731343128/giaythethao/e3zeifwudnlhepxky8hf.jpg"
+                                        src="https://res.cloudinary.com/dp0odec5s/image/upload/v1731408262/ipnxtfy7txryaxaydg3p.jpg"
                                         alt="No Delivery"
                                         sx={{
                                             width: '100%',
@@ -1029,7 +1030,7 @@ function Bill() {
                             <Grid item xs={12} md={6}>
                                 <Box
                                     component="img"
-                                    src="https://res.cloudinary.com/dp0odec5s/image/upload/v1731343128/giaythethao/e3zeifwudnlhepxky8hf.jpg"
+                                    src="https://res.cloudinary.com/dp0odec5s/image/upload/v1731408262/ipnxtfy7txryaxaydg3p.jpg"
                                     alt="No Delivery"
                                     sx={{
                                         width: '100%',

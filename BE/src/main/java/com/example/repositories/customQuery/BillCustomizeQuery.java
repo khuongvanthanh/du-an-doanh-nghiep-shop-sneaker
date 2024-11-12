@@ -248,7 +248,7 @@ public class BillCustomizeQuery {
 //            TypedQuery<Employee> query = entityManager.createQuery(sql, Employee.class);
 //            query.setParameter("userId", userId);
 //            return query.getSingleResult();
-//        } catch (NoResultException e) {
+//        } catch (InvalidDataException e) {
 //            return null;
 //        }
 //    }
