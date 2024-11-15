@@ -30,14 +30,14 @@ jwt:
   resetKey: 9106746cb1d349b31174dda29c2729d3448d9b8a57418cc1833c8478f0763980s
 openapi:
   service:
-    api-docs: api-moe-shop
-    title: MOE-SHOP-API
+    api-docs: api-sneaker-shop
+    title: SNEAKER-SHOP-API
     version: ${api.version}
     description: description
     server: http://localhost:2004
-    serverName: JavaTech
+    serverName: java
     license: Apache 2.0
-    license-url: https://facebook.com/NongHoangVu04
+    license-url: https://www.facebook.com/vanthanh.khuong.31
 cloudinary:
   cloud-name: ${CLOUDINARY_CLOUD_NAME}
   api-secret: ${CLOUDINARY_API_SECRET}
