@@ -16,7 +16,7 @@ export const playAudio = () => {
 
   const playTone = () => {
     const oscillator = audioContext.createOscillator();
-    oscillator.type = "sine"; // sine, square, sawtooth, triangle
+    oscillator.type = "sine"; 
     oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
     oscillator.connect(audioContext.destination);
 
