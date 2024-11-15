@@ -77,7 +77,7 @@ export default function BillDetail() {
   const fetchBillEdit = async () => {
     const bill = await getBillEdit(id);
     setBillData(bill.data);
-    setTempPaymentMethod(bill.data[0]?.paymentMethod || ""); // Initialize payment method here
+    setTempPaymentMethod(bill.data[0]?.paymentMethod || ""); 
   };
 
   console.log(checkNote)
@@ -145,15 +145,15 @@ export default function BillDetail() {
   };
 
   const stepIcons = [
-    <ShoppingCartRoundedIcon />,     // Đang chờ xử lý
-    <LocalShippingRoundedIcon />,     // Chờ xác nhận
-    <CheckCircleRoundedIcon />,       // Hoàn thành
-    <LocalShippingRoundedIcon />,     // Chờ giao
-    <CheckCircleRoundedIcon />,       // Đã giao thành công
-    <ErrorIcon />,                    // Giao hàng thất bại
-    <CancelIcon />,                   // Đã hủy
-    <DoneAllIcon />,                  // Đơn hàng hoàn tất
-    <HelpOutlineIcon />,              // Khác
+    <ShoppingCartRoundedIcon />,     
+    <LocalShippingRoundedIcon />,    
+    <CheckCircleRoundedIcon />,       
+    <LocalShippingRoundedIcon />,     
+    <CheckCircleRoundedIcon />,       
+    <ErrorIcon />,                   
+    <CancelIcon />,                 
+    <DoneAllIcon />,                  
+    <HelpOutlineIcon />,              
   ];
 
   const updateBillStatusDetail = async (status, customNote) => {

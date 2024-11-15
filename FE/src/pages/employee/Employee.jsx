@@ -19,9 +19,9 @@ export const Employee = () => {
     const [employee, setEmployee] = useState([]);
     const [keyword, setKeyword] = useState('');
     const [phone_number, setPhone_number] = useState('');
-    const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại (bắt đầu từ 1)
-    const [totalPages, setTotalPages] = useState(1); // Tổng số trang
-    const [itemsPerPage] = useState(5); // Số lượng nhân viên mỗi trang
+    const [currentPage, setCurrentPage] = useState(1); 
+    const [totalPages, setTotalPages] = useState(1); 
+    const [itemsPerPage] = useState(5); 
     const [lockedStates, setLockedStates] = useState({});
 
     const navigate = useNavigate();
@@ -45,7 +45,7 @@ export const Employee = () => {
         }
         const delayDebounceFn = setTimeout(() => {
             handleSearchNameAndPhone();
-        }, 500); // Đặt thời gian debounce ngắn hơn
+        }, 500);
 
         return () => clearTimeout(delayDebounceFn);
     }, [keyword, phone_number]);
@@ -54,8 +54,7 @@ export const Employee = () => {
         try {
             const res = await searchNameAndPhone(keyword.trim(), phone_number.trim());
             if (res && res.data && Array.isArray(res.data.data)) {
-                setEmployee(res.data.data);
-                // console.log(res.data.data);
+                setEmployee(res.data.data);             
                 setTotalPages(Math.ceil(res.data.totalElements / itemsPerPage));
             } else {
                 setEmployee([]);
@@ -87,7 +86,7 @@ export const Employee = () => {
 
     const handleSetEmployee = async (page) => {
         try {
-            const res = await getAllEmployee(page - 1, itemsPerPage); // API bắt đầu từ 0
+            const res = await getAllEmployee(page - 1, itemsPerPage); 
             if (res && res.data) {
                 setEmployee(res.data.content || res.data.data);
                 setTotalPages(res.data.totalPages || Math.ceil(res.data.totalElements / itemsPerPage));
@@ -261,19 +260,7 @@ export const Employee = () => {
                                             formatCurrencyVND(emp.salaries) || 'N/A'
                                         )}
 
-                                    </TableCell>
-                                    {/* <TableCell>
-                                        {emp.employee_address && typeof emp.employee_address === 'object' ? (
-                                            <div>
-                                                <div>{emp.employee_address.province || 'N/A'}</div>
-                                                <div>{emp.employee_address.district || 'N/A'}</div>
-                                                <div>{emp.employee_address.ward || 'N/A'}</div>
-                                                <div>{emp.employee_address.streetName || 'N/A'}</div>
-                                            </div>
-                                        ) : (
-                                            'N/A'
-                                        )}
-                                    </TableCell> */}
+                                    </TableCell>                                 
                                     <TableCell>
                                         <Switch size="lg"
                                             checked={lockedStates[emp.id] ?? emp.isLocked}
