@@ -20,7 +20,6 @@ export const Dashboard = () => {
         Dashboard
       </Typography>
 
-      {/* Cards Section */}
       <Grid container spacing={2} sx={{ marginBottom: 4 }}>
         <Grid xs={3}>
           <Card variant="plain" color="neutral" invertedColors>
@@ -211,7 +210,6 @@ export const Dashboard = () => {
         </Grid>
       </Grid>
 
-      {/* Customer Overview Table */}
       <Box
         sx={{
           marginTop: 4,
